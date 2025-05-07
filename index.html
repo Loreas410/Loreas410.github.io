@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>知识面书 - 思维共享平台</title>
+    <link rel="stylesheet" href="tree.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar">
+        <!-- 修改 onclick 事件为 goToHomePageImmediately -->
+        <h1 onclick="goToHomePageImmediately()">📚 知识面书</h1>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="搜索知识节点..." autocomplete="off" onkeyup="handleKeyEvents(event)">
+                <div class="search-icon">🔍</div>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+        </div>
+        <!-- 替换推荐书籍按钮 -->
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div id="menu-content" class="menu-content" style="display: none;">
+            <a href="#" onclick="showRecommendedBooks()">推荐书籍</a>
+            <a href="#" onclick="showOutline()">流程图</a>
+        </div>
+    </nav>
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+        <h3>相关分类</h3>
+        <ul>
+            <li><a href="#" onclick="handleSidebarClick('信号与系统知识点')">信号与系统知识点</a></li>
+            <li><a href="#" onclick="handleSidebarClick('变换对')">变换对</a></li>
+        </ul>
+    </aside>
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <div id="homePage" class="card-grid">
+        </div>
+        <div id="content-container" style="display: none;"></div>
+    </main>
+    <!-- 详情页模态框 -->
+    <div id="detailModal" class="detail-modal" style="display: none;">
+        <div class="detail-modal-content">
+            <span class="close" onclick="closeDetail()">&times;</span>
+            <h2 id="detailTitle"></h2>
+            <div id="detailContentWrapper">
+                <div id="detailContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 图片全屏展示模态框 -->
+    <div id="imageModal" class="detail-modal" style="display: none;">
+        <div class="detail-modal-content">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <img src="信号与系统知识点流程图.png" id="imageContent" style="width: 100%; height: auto;">
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>&copy; 2025 知识面书 - 思维共享平台</p>
+    </footer>
+    <script src="data.js"></script>
+    <script src="tree.js"></script>
+</body>
+</html>
